@@ -103,13 +103,29 @@ padding: 5px;
 }
 
 .fixed-categories{
-    /* width: 50%; */
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fixed-categories a{
+   color: green;
+}
+
+.fixed-categories a:hover {
+    color: rgb(3, 82, 3);
+}
+
+.select-categories {
+    width: 8%;
 }
 
 #all-categories {
     padding: 3px;
+    width: 100%;
     border: none;
     background-color: white;
+    color: green;
 }
 
 #all-categories:hover {
