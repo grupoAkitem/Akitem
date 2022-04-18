@@ -1,6 +1,7 @@
 const allCategories = document.getElementById('all-categories');
 const inputSearch = document.getElementById('search');
 const sectionCardProducts = document.getElementById('cardProducts');
+const searchBtn = document.getElementById('search-btn');
 
 // function para fazer as requisição das APIs
 // site da documentação da API https://developers.mercadolivre.com.br/pt_br/itens-e-buscas
@@ -24,19 +25,6 @@ async function getAPIs(req, product, categorie) {
     const result = await response.json();
     return result;
   }
-
-  const loading = (bol) => {
-    if (bol) {
-      const container = document.querySelector('.container');
-      const h1 = document.createElement('h1');
-      h1.className = 'loading';
-      h1.innerHTML = 'CARREGANDO...';
-      container.appendChild(h1);
-    } else {
-      const apagaCarregar = document.querySelector('.loading');
-      apagaCarregar.parentNode.removeChild(apagaCarregar);
-    }
-  };
 
   // function para criar o select das categorias
     const selectCategories = async () => {
@@ -78,15 +66,25 @@ async function getAPIs(req, product, categorie) {
     return section;
   }
 
-  const createCardsProducts = async () => {
-    // loading(true);
-    const { results } = await getAPIs('productGeneral');
-    // loading(false);
-    results.forEach((element) => {
-      // const createObjParam = createObjCard(element.id, element.title, element.thumbnail); 
-      sectionCardProducts.appendChild(createProductItemElement(element));
-    });
+  const createCardsProducts = async (res) => {
+    if (!res) {
+      const { results } = await getAPIs('productGeneral');
+      results.forEach((element) => {
+        sectionCardProducts.appendChild(createProductItemElement(element));
+      });
+    } else {
+      res.forEach((element) => {
+        sectionCardProducts.appendChild(createProductItemElement(element));
+      });
+    }
   };
+
+  searchBtn.addEventListener('click', async () => {
+    const itensCards = document.querySelectorAll('.item');
+    itensCards.forEach((e) => e.parentNode.removeChild(e));
+    const { results } = await getAPIs('productGeneral', inputSearch.value);
+    createCardsProducts(results);
+  })
 
 window.onload = () => { 
     selectCategories();
