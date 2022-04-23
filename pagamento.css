@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: radial-gradient(yellow, rgb(255, 208, 0));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+}
+
+header h1 {
+    font-family: 'Titan One', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: green;
+}
+
+.search {
+display: flex;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+border-radius: 5px;
+}
+
+.search input {
+border: none;
+border-radius: 5px 0 0 5px;
+width: 45vw;
+padding: 5px;
+}
+
+.search input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.search button {
+    background-color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: rgb(233, 231, 231);
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+    height: 45px;
+}
+
+
+
+
+
+section{
+    padding: 10px 5px;
+    display: flex;
+    margin: 20px 20px 0;
+}
+
+.payment{
+    display: flex;
+    flex-direction: column;
+    background-color: #ccc;
+    width: 400px;
+    border: 2px solid rgb(197, 195, 195);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.253);
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-weight: 600;
+}
+
+.payment-method{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.payment-method:first-child{
+    margin-top: 10px;
+}
+
+.payment-method span{
+    padding-left: 10px;
+}
+
+.radio{
+    cursor: pointer;
+    appearance: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: 2px solid rgb(64, 120, 224);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.radio::before{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: rgb(64, 120, 224);
+    content: "";
+    border-radius: 50%;
+    opacity: 0; 
+    transition:  200ms ease-in-out;
+}
+.radio:checked::before{
+    opacity: 1;
+}
+
+
+.payment-form{
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.payment-boleto, .payment-cartao,
+.payment-pix, .payment-picpay{
+    display: none;
+    display: flex;
+    background: #eee;
+}
+
+@media(max-width: 768px){
+    section{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .payment{
+        margin-bottom: 25px;
+    }
+}
