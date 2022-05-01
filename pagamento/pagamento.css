@@ -13,10 +13,16 @@ header {
     height: 100px;
 }
 
-header h1 {
+header a {
     font-family: 'Titan One', sans-serif;
+    text-decoration: none;
     font-size: 3.5rem;
     font-weight: 200;
+    color: green;
+}
+
+header a:hover {
+    text-decoration: none;
     color: green;
 }
 
@@ -57,9 +63,22 @@ padding: 5px;
     height: 45px;
 }
 
+.nav-header a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    width: 20vw;
+    height: 45px;
+    font-size: 40px;
+}
 
+.nav-header a:hover {
+    color: rgb(3, 82, 3);
+}
 
-
+/* Body */
 
 section{
     padding: 10px 5px;
@@ -70,9 +89,10 @@ section{
 .payment{
     display: flex;
     flex-direction: column;
-    background-color: #ccc;
-    width: 400px;
-    border: 2px solid rgb(197, 195, 195);
+    background-color: #eee;
+    width: 500px;
+    height: fit-content;
+    border: 2px solid rgba(197, 195, 195, 0.404);
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.253);
     padding: 10px;
@@ -85,11 +105,12 @@ section{
     display: flex;
     align-items: center;
     padding: 5px;
-    border: 2px solid #ddd;
+    border: 2px solid #ccc;
     border-radius: 5px;
-    background-color: #eee;
+    background-color: #ddd;
     cursor: pointer;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .payment-method:first-child{
@@ -128,20 +149,90 @@ section{
 }
 
 
+
 .payment-form{
+    padding: 0 25px;
     flex: 1;
-    margin-left: 20px;
     display: flex;
-    flex-direction: column;
-}
-.payment-boleto, .payment-cartao,
-.payment-pix, .payment-picpay{
-    display: none;
-    display: flex;
-    background: #eee;
+    justify-content: center;
 }
 
-@media(max-width: 768px){
+.grid{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr 0.5fr);
+    gap: 20px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+.form{
+    background-color: #eee;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    border: 2px solid rgba(197, 195, 195, 0.404);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.253);
+    padding: 20px;
+    width: 500px;
+}
+
+.form-item{
+    margin-bottom: 20px;
+}
+
+.form-item input{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 2px #ccc;
+}
+
+.form-item input:focus{
+   outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+
+.form button{
+    width: 100%;
+    background-color:  rgb(255, 208, 0);
+    border: 2px solid rgb(255, 190, 0);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+
+}
+.form button:hover{
+    background-color:  rgb(255, 240, 0);
+    border-color: rgb(255, 220, 0);
+
+}
+
+.form-value{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+
+.boleto, .cartao, .pix, .picpay{
+    display: none;
+}
+
+
+@media(max-width: 850px){
     section{
         flex-direction: column;
         align-items: center;
@@ -149,5 +240,6 @@ section{
 
     .payment{
         margin-bottom: 25px;
+        max-width: 500px;
     }
 }
