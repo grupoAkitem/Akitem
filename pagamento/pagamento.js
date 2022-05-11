@@ -1,32 +1,19 @@
 const qs = (el) => document.querySelector(el); 
-function boleto(){
-    qs("div.boleto").style.display = "block";
-    qs("div.cartao").style.display = "none";
-    qs("div.pix").style.display = "none";
-    qs("div.picpay").style.display = "none";
+const qsa = (el) => document.querySelectorAll(el); 
 
-}
 
-function cartao(){
-    qs("div.boleto").style.display = "none";
-    qs("div.cartao").style.display = "block";
-    qs("div.pix").style.display = "none";
-    qs("div.picpay").style.display = "none";
+function selecionar(){
+    let input = qsa("input.radio");
+    let payment = qsa("div.form");
+   
+    for(let i=0; i<payment.length; i++){
+        payment[i].style.display = "none"
+    }
 
-}
-
-function pix(){
-    qs("div.boleto").style.display = "none";
-    qs("div.cartao").style.display = "none";
-    qs("div.pix").style.display = "block";
-    qs("div.picpay").style.display = "none";
-
-}
-
-function picpay(){
-    qs("div.boleto").style.display = "none";
-    qs("div.cartao").style.display = "none";
-    qs("div.pix").style.display = "none";
-    qs("div.picpay").style.display = "block";
-
+    for(let i=0; i<input.length; i++){
+        if(input[i].checked){
+            payment[i].style.display = "flex";
+            break;
+        }
+    }
 }

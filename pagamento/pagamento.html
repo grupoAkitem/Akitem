@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <header>
         <a href="/index.html">AkiTem</a>
         <div class="search">
@@ -30,7 +31,7 @@
             <a class="material-icons" href="/carrinho/carrinho.html">shopping_cart</a>
         </nav>
     </header>
-
+    
 
     <section>
 
@@ -38,28 +39,28 @@
             <h4>Selecione o método de Pagamento:</h4>
             <label for="boleto">
                 <div class="payment-method">
-                    <input class="radio" type="radio" name="payment-method" id="boleto" onclick="boleto()">
+                    <input class="radio" type="radio" name="payment-method" id="boleto" onclick="selecionar()">
                     <span>Boleto</span>
                 </div>
             </label>
 
             <label for="cartao">
                 <div class=" payment-method">
-                    <input class="radio" type="radio" name="payment-method" id="cartao" onclick="cartao()">
+                    <input class="radio" type="radio" name="payment-method" id="cartao" onclick="selecionar()">
                     <span>Cartão de Crédito</span>
                 </div>
             </label>
 
             <label for="pix">
                 <div class=" payment-method">
-                    <input class="radio" type="radio" name="payment-method" id="pix" onclick="pix()">
+                    <input class="radio" type="radio" name="payment-method" id="pix" onclick="selecionar()">
                     <span>Pix</span>
                 </div>
             </label>
 
             <label for="picpay">
                 <div class=" payment-method">
-                    <input class="radio" type="radio" name="payment-method" id="picpay" onclick="picpay()">
+                    <input class="radio" type="radio" name="payment-method" id="picpay" onclick="selecionar()">
                     <span>PicPay</span>
                 </div>
             </label>
@@ -67,50 +68,55 @@
 
 
         <div class="payment-form">
+
+
             <div class="boleto form">
-                <form action="">
-                    <h2>Boleto Bancário</h2>
+                <h2>Boleto Bancário</h2>
+                <form action="" autocomplete="off">
+                    
                     <div class="form-item">
-                        <input type="text" placeholder="Nome Completo" name="nome" id="nome">
+                        <input type="text" placeholder="Nome Completo" name="nome" id="nome" required>
                     </div>
 
                     <div class="form-item">
-                        <input type="number" name="cpf" id="cpf" placeholder="CPF">
+                        <input type="number" name="cpf" id="cpf" placeholder="CPF" required>
                     </div>
 
                     <div class="form-item">
-                        <input type="text" name="cep" id="cep" placeholder="CEP">
+                        <input type="text" name="cep" id="cep" placeholder="CEP" required>
                     </div>
 
                     <div class="grid">
                         <div class="form-item">
-                            <input type="text" name="address" id="address" placeholder="Endereço">
+                            <input type="text" name="address" id="address" placeholder="Endereço" required>
                         </div>
                         <div class="form-item">
-                            <input type="number" name="num" id="num" placeholder="Nº">
+                            <input type="number" name="num" id="num" placeholder="Nº" required>
                         </div>
                     </div>
 
                     <div class="form-item">
-                        <input type="text" name="bairro" id="bairro" placeholder="Bairro">
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
                     </div>
 
                     <div class="grid">
                         <div class="form-item">
-                            <input type="text" name="cidade" id="cidade" placeholder="Cidade">
+                            <input type="text" name="cidade" id="cidade" placeholder="Cidade" required>
                         </div>
                         <div class="form-item">
-                            <input type="text" name="UF" id="UF" placeholder="UF">
+                            <input type="text" name="UF" id="UF" placeholder="UF" required>
                         </div>
                     </div>
                     
                     <button type="submit">Gerar Boleto</button>
                 </form>
+
             </div>
 
             <div class="cartao form">
                 <h2>Cartão de Crédito</h2>
                 <form action="" autocomplete="off">
+                    
                     <div class="form-item">
                         <input type="text" placeholder="Nome Completo" name="nome" id="nome" required>
                     </div>
@@ -131,38 +137,39 @@
                     <button type="submit">Finalizar Pagamento</button>
                 </form>
 
-
             </div>
 
             <div class="pix form">
-                <h2>Pix</h2>
+               <h2>Pix</h2>
                 <form action="" autocomplete="off">
+                     
                     <div class="form-item">
-                        <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="form-item">
-                        <input type="number" name="cpf" id="cpf" placeholder="CPF"> 
+                        <input type="number" name="cpf" id="cpf" placeholder="CPF" required> 
                     </div>
 
                     <div class="form-value"></div><!--Valor da compra-->
                     <button type="submit">Gerar Código de pagamento</button>
                 </form>
+
             </div>
 
             <div class="picpay form">
                 <h2>PicPay</h2>
                 <form action="" autocomplete="off">
                     <div class="form-item">
-                        <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="form-item">
-                        <input type="number" name="cpf" id="cpf" placeholder="CPF"> 
+                        <input type="number" name="cpf" id="cpf" placeholder="CPF" required> 
                     </div>
                     <div class="form-item">
-                        <input type="email" name="email" id="email" placeholder="E-mail">
+                        <input type="email" name="email" id="email" placeholder="E-mail" required>
                     </div>
                     <div class="form-item">
-                        <input type="text" name="telefone" id="telefone" placeholder="Telefone">
+                        <input type="text" name="telefone" id="telefone" placeholder="Telefone" required>
                     </div>
 
                     <div class="form-value"></div><!--Valor da compra-->
@@ -173,8 +180,9 @@
 
 
 
-        <script src="pagamento.js"></script>
     </section>
+
+    <script src="pagamento.js"></script>
 </body>
 
 </html>
