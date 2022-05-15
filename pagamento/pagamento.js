@@ -1,19 +1,125 @@
-const qs = (el) => document.querySelector(el); 
-const qsa = (el) => document.querySelectorAll(el); 
+const qs = (el) => document.querySelector(el);
+const qsa = (el) => document.querySelectorAll(el);
+
+const form = qsa('form');
+form.forEach( (el)=>{
+    el.addEventListener('submit', (el)=>{
+    el.preventDefault();
+    } )
+} ); 
+
+document.getElementsByName('cpf').forEach( (el)=>{
+    el.setAttribute('onkeypress', '$(this) .mask("999.999.999-99")')
+});
+
+document.getElementById('cepBill').setAttribute('onkeypress', '$(this) .mask("99999-999")');
+
+document.getElementById('numCartao').setAttribute('onkeypress', '$(this) .mask("9999 9999 9999 9999")');
+
+document.getElementById('cvc').setAttribute('onkeypress', '$(this) .mask("999")');
+
+document.getElementById('val').setAttribute('onkeypress', '$(this) .mask("99/99")');
 
 
-function selecionar(){
-    let input = qsa("input.radio");
-    let payment = qsa("div.form");
-   
-    for(let i=0; i<payment.length; i++){
+/*-----------------------------------------------------------------------------------------------------------*/
+function selecionar() {
+    const input = qsa("input.radio");
+    const payment = qsa("div.form");
+
+    for (let i = 0; i < payment.length; i++) {
         payment[i].style.display = "none"
     }
 
-    for(let i=0; i<input.length; i++){
-        if(input[i].checked){
+    for (let i = 0; i < input.length; i++) {
+        if (input[i].checked) {
             payment[i].style.display = "flex";
             break;
         }
     }
+}
+
+
+
+qs('.boleto form button').addEventListener('click', ()=>{
+    const nameBill = qs('.boleto form #nameBill');
+    const cpfBill = qs('.boleto form #cpfBill');
+    const cepBill = qs('.boleto form #cepBill');
+    const addressBill = qs('.boleto form #addressBill');
+    const numBill = qs('.boleto form #numBill');
+    const bairroBill = qs('.boleto form #bairroBill');
+    const cityBill = qs('.boleto form #cityBill');
+    const UFBill = qs('.boleto form #UFBill');
+
+    
+})
+
+
+qs('.cartao form button').addEventListener('click', ()=>{
+    const cardHolderCpf= qs('.cartao #cardCpf');
+    const holderCard= qs('.cartao #cardName');
+    const cardNumber= qs('.cartao #numCartao');
+    const val = qs('.cartao #val');
+    const valValid = val.value.split("/");
+    const ano = new Date().getFullYear();
+    const cardCvc= qs('.cartao #cvc');
+
+    if (holderCard.value == "" || holderCard.value.length < 5){
+        inputError(holderCard);
+        return false;
+    }
+    if (cardHolderCpf.value.length !== 14){
+        inputError(cardHolderCpf);
+        return false;
+    }
+    
+    if (cardNumber.value == "" || cardNumber.value.length < 10){
+        inputError(cardNumber);
+        return false;
+    }
+    if (cardCvc.value.length !== 3){
+        inputError(cardCvc);
+        return false;
+    }
+    if(valValid[0] > 12 || valValid[1] < ano.toString().slice(-2) ){
+        inputError(val);
+        return false;
+    }
+    
+    qs('.cartao').style.height = "300px";
+    qs('.cartao').innerHTML = "<h2>Aguarde enquanto processamos os dados</h2>"
+    setTimeout(()=>{
+        qs('.cartao').innerHTML += '<h3 class="aprovedPayment">Pagamento realizado com sucesso</h3>'
+    }, 3000)
+
+})
+
+
+/*-----------------------Pix/PicPay-------------------------*/
+window.onload = function(){
+    const paymentValue = 100; 
+    var QRcode =' https://chart.googleapis.com/chart?chs=300x300&cht=qr&chld=H&chl=Valor a ser pago: R$';
+    const QRcodeContent = QRcode + encodeURIComponent(Number(paymentValue).toFixed(2));
+    document.querySelector('.pix #qrcode').src = QRcodeContent;
+    qs('.pix .form-value').innerHTML = `Valor da compra R$${paymentValue.toFixed(2)}`
+    document.querySelector('.picpay #qrcode').src = QRcodeContent;
+    qs('.picpay .form-value').innerHTML = `Valor da compra R$${paymentValue.toFixed(2)}`
+}
+
+
+
+/*-----------------------Error-------------------------*/
+function inputError (el){
+    el.style.boxShadow = "0px 0px 5px #f00";
+
+    el.addEventListener('blur', ()=>{
+        el.style.boxShadow = "none";
+    }) 
+
+    setTimeout(()=>{
+        el.addEventListener('focus', ()=>{
+            el.style.boxShadow = " 0px 0px 5px #ffbe00";
+        }) 
+    },3000)
+   
+    
 }
