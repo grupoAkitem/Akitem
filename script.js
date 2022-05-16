@@ -54,14 +54,15 @@ async function getAPIs(req, product, categorie) {
   }
   
   // function para criar section com elementos
-  function createProductItemElement({ id, title, thumbnail }) {
-    const section = document.createElement('section');
+  function createProductItemElement({ id, title, thumbnail, price }) {
+    const section = document.createElement('a');
     section.className = 'item';
+    section.href = `/productDetails/product.html?${id}`
   
-    section.appendChild(createCustomElement('span', 'item__id', id));
-    section.appendChild(createCustomElement('span', 'item__title', title));
     section.appendChild(createProductImageElement(thumbnail));
-    section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+    section.appendChild(createCustomElement('span', 'item__id', id));
+    section.appendChild(createCustomElement('div', 'item__title', title));
+    section.appendChild(createCustomElement('span', 'item__add', `R$: ${ price.toFixed(2) }`));
   
     return section;
   }
