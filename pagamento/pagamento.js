@@ -8,20 +8,31 @@ form.forEach( (el)=>{
     } )
 } ); 
 
-document.getElementsByName('cpf').forEach( (el)=>{
-    el.setAttribute('onkeypress', '$(this) .mask("999.999.999-99")')
-});
-
-document.getElementById('cepBill').setAttribute('onkeypress', '$(this) .mask("99999-999")');
-
-document.getElementById('numCartao').setAttribute('onkeypress', '$(this) .mask("9999 9999 9999 9999")');
-
-document.getElementById('cvc').setAttribute('onkeypress', '$(this) .mask("999")');
-
-document.getElementById('val').setAttribute('onkeypress', '$(this) .mask("99/99")');
+qs('#cpfBill').setAttribute('onkeypress', '$(this) .mask("999.999.999-99")');
 
 
-/*-----------------------------------------------------------------------------------------------------------*/
+qs('#cardCpf').setAttribute('onkeypress', '$(this) .mask("999.999.999-99")');
+
+
+qs('#cepBill').setAttribute('onkeypress', '$(this) .mask("99999-999")');
+
+
+qs('#numCartao').setAttribute('onkeypress', '$(this) .mask("9999 9999 9999 9999")');
+
+
+qs('#cvc').setAttribute('onkeypress', '$(this) .mask("999")');
+
+
+qs('#val').setAttribute('onkeypress', '$(this) .mask("99/99")');
+
+
+qs('.boleto form #UFBill').addEventListener('keyup', (ev) => {
+
+    const input = ev.target;
+    input.value = input.value.toUpperCase();
+})
+
+/*------------------------------------------------------------------------------*/
 function selecionar() {
     const input = qsa("input.radio");
     const payment = qsa("div.form");
@@ -39,6 +50,68 @@ function selecionar() {
 }
 
 
+
+qs('.boleto form button').addEventListener('click', () => {
+    const nameBill = qs('.boleto form #nameBill');
+    const cpfBill = qs('.boleto form #cpfBill');
+    const cepBill = qs('.boleto form #cepBill');
+    const addressBill = qs('.boleto form #addressBill');
+    const numBill = qs('.boleto form #numBill');
+    const bairroBill = qs('.boleto form #bairroBill');
+    const cityBill = qs('.boleto form #cityBill');
+    const UFBill = qs('.boleto form #UFBill');
+
+    if (nameBill.value.length < 5) {
+        inputError(nameBill);
+        return false
+    }
+    if (cpfBill.value.length !== 14) {
+        inputError(cpfBill);
+        return false;
+    }
+    if (cepBill.value.length !== 9) {
+        inputError(cepBill);
+        return false;
+    }
+    if (addressBill.value.length < 5) {
+        inputError(addressBill);
+        return false
+    }
+    if (bairroBill.value.length < 5) {
+        inputError(bairroBill);
+        return false
+    }
+    if (cityBill.value.length < 5) {
+        inputError(cityBill);
+        return false
+    }
+    if (numBill.value.length < 1) {
+        inputError(numBill);
+        return false
+    }
+    if (!isNaN(UFBill.value[0]) || !isNaN(UFBill.value[1]) || UFBill.value.length !== 2) {
+        inputError(UFBill);
+        return false
+    } else {
+        const doc = new jsPDF();
+        const valor = 100;
+        doc.setFontSize(16);
+        doc.rect(0, 0, 220, 20);
+        doc.rect(0, 0, 120, 20);
+        doc.rect(0, 0, 220, 50);
+        doc.rect(0, 0, 220, 80);
+
+
+        doc.text('Beneficiário: Akitem', 15, 13);
+        doc.text(`Valor: R$${valor.toFixed(2)}`, 122, 13)
+        doc.text(`Pagador: ${nameBill.value}`, 15, 30);
+        doc.text(`CPF:  ${cpfBill.value}`, 15, 45);
+        doc.text(`${addressBill.value}     Nº ${numBill.value}`, 15, 60);
+        doc.text(`Cep: ${cepBill.value}`, 15, 69)
+        doc.text(`${bairroBill.value} - ${cityBill.value} - ${UFBill.value}`, 15, 77);
+        doc.save('boleto');
+    }
+})
 
 qs('.boleto form button').addEventListener('click', ()=>{
     const nameBill = qs('.boleto form #nameBill');

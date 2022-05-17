@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
    
     
     <link rel="stylesheet" href="pagamento.css">
@@ -84,32 +85,32 @@
 
 
 
-                    <input type="text" name="cpf" id="cpfBill" placeholder="CPF" autocomplete="off" required>
+                    <input type="text" name="cpf" id="cpfBill" placeholder="CPF" autocomplete="off" minlength="14" required>
 
 
 
-                    <input type="text" name="cepBill" id="cepBill" placeholder="CEP" required>
+                    <input type="text" name="cepBill" id="cepBill" placeholder="CEP" minlength="9" required>
 
 
                     <div class="grid">
 
-                        <input type="text" name="addressBill" id="addressBill" placeholder="Endereço" required>
+                        <input type="text" name="addressBill" id="addressBill" placeholder="Endereço"  minlength="5" required>
 
 
-                        <input type="number" name="numBill" id="numBill" placeholder="Nº" required>
+                        <input type="number" name="numBill" id="numBill" placeholder="Nº"  required>
 
                     </div>
 
 
-                    <input type="text" name="bairroBill" id="bairroBill" placeholder="Bairro" required>
+                    <input type="text" name="bairroBill" id="bairroBill" placeholder="Bairro" minlength="5" required>
 
 
                     <div class="grid">
 
-                        <input type="text" name="cityBill" id="cityBill" placeholder="Cidade" required>
+                        <input type="text" name="cityBill" id="cityBill" placeholder="Cidade" minlength="5" required>
 
 
-                        <input type="text" name="UFBill" id="UFBill" placeholder="UF" maxlength="2" required>
+                        <input type="text" name="UFBill" id="UFBill" placeholder="UF" minlength="2" maxlength="2" required>
 
                     </div>
 
@@ -152,7 +153,7 @@
 
             <div class="picpay form">
                 <h2>PicPay</h2>
-                <div class="form-value">Valor da compra: R$ 12.00 </div>
+                <div class="form-value"></div>
                 <img id="qrcode">
             </div>
         </div>
