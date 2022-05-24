@@ -241,7 +241,7 @@ main {
     border-bottom: 1px solid rgba(128, 128, 128, 0.61);
 }
 
-.calcular-prazo {
+.section-CEP {
     border: 1px solid gray;
     padding: 10px;
     border-radius: 8px;
@@ -264,6 +264,11 @@ main {
 
 .calcular-prazo button:hover {
     background-color: rgb(255, 223, 78);
+}
+
+.calcular-prazo button:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
 
 .calcular-prazo input {
@@ -407,3 +412,9 @@ main {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
+
+.prazo-calculado {
+    display: none;
+    flex-direction: column;
+}
+

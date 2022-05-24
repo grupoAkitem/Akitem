@@ -3,8 +3,9 @@ import { fetchCategories, fetchProductGeneral } from "./services/getAPIs.js";
 
 const allCategories = document.getElementById('all-categories');
 const inputSearch = document.getElementById('search');
-const sectionCardProducts = document.getElementById('cardProducts');
 const searchBtn = document.getElementById('search-btn');
+const selectdCategories = document.getElementById('all-categories');
+const sectionCardProducts = document.getElementById('cardProducts');
 
   // function para criar o select das categorias
   const selectCategories = async () => {
@@ -18,33 +19,38 @@ const searchBtn = document.getElementById('search-btn');
     });
     };
 
-  const createCardsProducts = async (res) => {
-    if (!res) {
-      const { results } = await fetchProductGeneral();
-      results.forEach((element) => {
-        sectionCardProducts.appendChild(createProductItemElement(element));
-      });
-    } else {
-      res.forEach((element) => {
-        sectionCardProducts.appendChild(createProductItemElement(element));
-      });
-    }
-  };
+    export const createCardsProducts = async (res) => {
+      if (!res) {
+        const { results } = await fetchProductGeneral();
+        results.forEach((element) => {
+          sectionCardProducts.appendChild(createProductItemElement(element));
+        });
+      } else {
+        res.forEach((element) => {
+          sectionCardProducts.appendChild(createProductItemElement(element));
+        });
+      }
+    };
+ 
+const redirectPesquisar = () => {
+  window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
+  inputSearch.value = '';
+}
 
-  const listProducts = async () => {
-    const { results } = await fetchProductGeneral(inputSearch.value);
-    if (results.length > 0) {
-      const itensCards = document.querySelectorAll('.item');
-      itensCards.forEach((e) => e.parentNode.removeChild(e));
-      createCardsProducts(results);
-      inputSearch.value = '';
+  searchBtn.addEventListener('click', () => {
+    if (inputSearch.value !== '') {
+      redirectPesquisar();
     }
-  };
-
-  searchBtn.addEventListener('click', listProducts);
+    });
   document.addEventListener('keypress', ({ key }) => {
-    if (key === 'Enter') {
-      listProducts();
+    if (key === 'Enter' && inputSearch.value !== '') {
+      redirectPesquisar();
+    }
+  })
+
+  selectdCategories.addEventListener('click', ({target}) => {
+    if (target.value !== 'categorias') {
+      window.location.href = `/pages/pesquisar.html?categoria=${target.value}&product=${inputSearch.value}`;
     }
   })
 

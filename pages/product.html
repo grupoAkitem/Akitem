@@ -92,11 +92,22 @@
             </section>
             <section class="details-pay">
                 <h3 class="priceProduct"></h3>
-                <div>
+                <div class="section-CEP">
                     <div class="calcular-prazo">
                         <h4>calcular prazo</h4>
-                        <input type="text">
-                        <button>ok</button>
+                        <input id="inputCep" type="text">
+                        <button id="btnCep">ok</button>
+                    </div>
+                    <div class="prazo-calculado">
+                        <div style="display: flex;">
+                            <span class="material-icons">room</span>
+                            <p id="endereco"></p>
+                        </div>
+                        <hr style="margin-top: 0;">
+                        <div style="display: flex;">
+                            <span class="material-icons">local_shipping</span>
+                            <p style="margin-left: 10px;">Receba em até 5 dias úteis</p>
+                        </div>
                     </div>
                 </div>
                 <div class="buy">
