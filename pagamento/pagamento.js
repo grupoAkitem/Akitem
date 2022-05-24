@@ -1,8 +1,8 @@
 const qs = (el) => document.querySelector(el);
 const qsa = (el) => document.querySelectorAll(el);
 
-const form = qsa('form');
-form.forEach( (el)=>{
+ 
+qsa('form').forEach( (el)=>{
     el.addEventListener('submit', (el)=>{
     el.preventDefault();
     } )
@@ -184,3 +184,77 @@ function inputError (el){
    
     
 }
+
+function pesquisacep(valor){
+    let cep = valor.replace(/\D/g, "");
+    let script = document.createElement('script');
+    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+    document.body.appendChild(script);
+}
+
+function limpa_formulário_cep() {
+    //Limpa valores do formulário de cep.
+    document.getElementById('addressBill').value= ("");
+    document.getElementById('bairroBill').value= ("");
+    document.getElementById('cityBill').value= ("");
+    document.getElementById('UFBill').value= ("");
+    
+}
+
+function meu_callback(conteudo) {
+if (!("erro" in conteudo)) {
+    //Atualiza os campos com os valores.
+    document.getElementById('addressBill').value=(conteudo.logradouro);
+    document.getElementById('bairroBill').value=(conteudo.bairro);
+    document.getElementById('cityBill').value=(conteudo.localidade);
+    document.getElementById('UFBill').value=(conteudo.uf);
+    
+} //end if.
+else {
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    inputError(qs('.boleto form #cepBill'))
+}
+}
+
+function pesquisacep(valor) {
+
+//Nova variável "cep" somente com dígitos.
+var cep = valor.replace(/\D/g, '');
+
+//Verifica se campo cep possui valor informado.
+if (cep != "") {
+
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
+
+    //Valida o formato do CEP.
+    if(validacep.test(cep)) {
+
+        //Preenche os campos com "..." enquanto consulta webservice.
+        document.getElementById('addressBill').value="...";
+        document.getElementById('bairroBill').value="...";
+        document.getElementById('cityBill').value="...";
+        document.getElementById('UFBill').value="...";
+        
+
+        //Cria um elemento javascript.
+        var script = document.createElement('script');
+
+        //Sincroniza com o callback.
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+        //Insere script no documento e carrega o conteúdo.
+        document.body.appendChild(script);
+
+    } //end if.
+    else {
+        //cep é inválido.
+        limpa_formulário_cep();
+    }
+} //end if.
+else {
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
+}
+};
