@@ -3,6 +3,7 @@ body {
     padding: 0;
     height: 100%;
     max-width: 100%;
+    background-color: #fff;
 }
 :root{
     --cor1: rgb(25, 67, 204);
@@ -15,18 +16,23 @@ body {
 header{
     background-image: radial-gradient(yellow, rgb(255, 208, 0));
     display: flex;
+    justify-content: space-around;
     align-items: center;
     width: 100vw;
     height: 100px;
 }
-header h1 {
+header a {
     font-family: 'Titan One', sans-serif;
+    text-decoration: none;
     font-size: 3.5rem;
     font-weight: 200;
-    color: green;   
+    color: green;
 }
 
-
+header a:hover {
+    text-decoration: none;
+    color: green;
+}
 
 
 .login{

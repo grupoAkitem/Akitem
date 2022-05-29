@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+header {
+    background-image: radial-gradient(yellow, rgb(255, 208, 0));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+header a {
+    font-family: 'Titan One', sans-serif;
+    text-decoration: none;
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: green;
+}
+
+header a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.search {
+display: flex;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+border-radius: 5px;
+}
+
+.search input {
+border: none;
+border-radius: 5px 0 0 5px;
+width: 45vw;
+padding: 5px;
+}
+
+.search input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.search button:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.search button {
+    background-color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: rgb(233, 231, 231);
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-around;
+    width: 20vw;
+    height: 45px;
+}
+
+.nav-header a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    width: 20vw;
+    height: 45px;
+    font-size: 40px;
+}
+
+.nav-header a:hover {
+    color: rgb(3, 82, 3);
+}
+
+.ajust-carrossel {
+    width: 95%;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.carrosel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.categories {
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 10px 15px -8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fixed-categories{
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fixed-categories a{
+   color: green;
+   font-size: 1rem;
+}
+
+.fixed-categories a:hover {
+    color: rgb(3, 82, 3);
+}
+
+.select-categories {
+    width: 8%;
+}
+
+#all-categories {
+    padding: 3px;
+    width: 100%;
+    border: none;
+    background-color: white;
+    color: green;
+}
+
+#all-categories:hover {
+    background-color: rgb(248, 245, 245);
+}
+
+#all-categories:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#cardProducts {
+    display: flex;
+    flex-basis: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.number-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-bottom: 28px;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    background-color:white;
+    color: green;
+    border: 1.6px solid green;
+    font-size: 12px;
+    font-family: sans-serif;
+}

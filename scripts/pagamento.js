@@ -1,8 +1,8 @@
 const qs = (el) => document.querySelector(el);
 const qsa = (el) => document.querySelectorAll(el);
 
- 
-qsa('form').forEach( (el)=>{
+const form = qsa('form');
+form.forEach( (el)=>{
     el.addEventListener('submit', (el)=>{
     el.preventDefault();
     } )
@@ -114,7 +114,6 @@ qs('.boleto form button').addEventListener('click', () => {
 })
 
 
-
 qs('.cartao form button').addEventListener('click', ()=>{
     const cardHolderCpf= qs('.cartao #cardCpf');
     const holderCard= qs('.cartao #cardName');
@@ -184,6 +183,7 @@ function inputError (el){
    
     
 }
+
 
 function pesquisacep(valor){
     let cep = valor.replace(/\D/g, "");

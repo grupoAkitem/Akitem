@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    background-color: #fff;
 }
 
 header {
@@ -181,7 +182,7 @@ h2, h3{
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.253);
     padding: 20px;
-    width: 500px;
+    max-width: 500px;
 
 }
 
@@ -304,5 +305,20 @@ form button:hover{
     }
     .form button{
         font-size: 14px;
+    }
+}
+@media(max-width: 375px){
+    .boleto .grid{
+        display:flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .cartao .grid{
+        grid-template-columns: 0.4fr 0.4fr;
+        gap: 15px;
+    }
+    .cartao #cvc{
+        width: 100px;
     }
 }

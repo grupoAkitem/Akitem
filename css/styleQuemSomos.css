@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(250, 250, 250);
+}
+
+header {
+    background-image: radial-gradient(yellow, rgb(255, 208, 0));
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+}
+
+
+header a {
+    font-family: 'Titan One', sans-serif;
+    text-decoration: none;
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: green;
+}
+
+header a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+div{
+    max-width: 100vw;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+h1{
+    font-family: 'Titan One', sans-serif;
+    font-size: 1.450rem;
+    font-weight: 200;
+}
+
+h2{
+    font-family: 'arial', sans-serif;
+    font-size: 1.0rem;
+    font-weight: 200;
+    margin-top: 25px;
+}
+
+h3{
+    font-family: 'Titan One', sans-serif;
+    font-size: 1.450rem;
+    font-weight: 200;
+}
+
+h4{
+    font-family: 'arial', sans-serif;
+    font-size: 1.0rem;
+    font-weight: 200;
+}
+
+h5{
+    font-family: 'Titan One', sans-serif;
+    font-size: 1.450rem;
+    font-weight: 200;
+}
+.accordion__item__content{
+    display: flex;
+}
+
+
