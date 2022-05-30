@@ -30,6 +30,7 @@ const cart = {
     thumb: '',
     price: '',
     title: '',
+    quanty: 1,
 }
 
 const createGalery = ({ pictures }) => {
