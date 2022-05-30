@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="li-edge">
+
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <link href="/css/styleCadastro.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
     <title>Aki Tem</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/styleCadastro.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <title>Aki Tem</title>
+    <link rel="shortcut icon" href="/Imagens/Sem título-1.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 
@@ -23,11 +32,21 @@
                 <img src="/Imagens/undraw_shopping_re_hdd9.svg">
             </div>
             <div class="form">
-                <form action="#">
+
+                <form>
+
+                <form>
+
                     <div class="form-header">
                         <div class="title">
                             <h1>Cadastre-se</h1>
                         </div>
+
+                        <div id="verification">
+                            <span class="material-icons">dangerous</span>
+                            <p id="incorrect"></p>
+                        </div>
+
                     </div>
                     <div class="input-group">
                         <div class="input-box">
@@ -83,12 +102,19 @@
                         </div>
                     </div>
                     <div class="continue-button">
+
                         <button><a href="/index.html">Continuar</a></button>
+
+                        <button id="confirm-btn">Continuar</button>
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script type="module" src="/scripts/cadastro.js"></script>
+
 </body>
 
 </html>
