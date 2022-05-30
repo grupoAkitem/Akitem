@@ -110,6 +110,7 @@ main {
     align-items: center;
 }
 
+
 .perfil-name {
     display: flex;
     justify-content: center;
@@ -290,10 +291,12 @@ main {
     border: 1px solid gray;
 }
 
+
 .calcular-prazo input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
+
 
 .share-fav {
     display: flex;
@@ -347,6 +350,7 @@ main {
     cursor: pointer;
 }
 
+
 .fav {
     color: red;
 }
@@ -381,6 +385,7 @@ main {
     background-color: white;
     margin-top: 20px;
     border-radius: 4px;
+
 }
 
 .related-products {
@@ -405,6 +410,7 @@ main {
     width: 90%;
     padding: 20px;
     background-color: white;
+    margin-top: 20px;
     margin: 20px 0;
     border-radius: 4px;
 }
@@ -441,6 +447,7 @@ main {
     flex-direction: column;
 }
 
+
 .add-aval {
     display: flex;
     width: 100%;
@@ -467,3 +474,4 @@ main {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
+

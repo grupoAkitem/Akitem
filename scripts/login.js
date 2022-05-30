@@ -1,12 +1,14 @@
 document.querySelector("a#close_link").addEventListener('click', changestyle);
 document.querySelector("div#close_button").addEventListener('click', changestyle);
 document.querySelector("a#forget_password").addEventListener("click", changestyle);
+
 const usuario = JSON.parse(localStorage.getItem('login'));
 const emailEntrar = document.getElementById('email');
 const btnEntrar = document.getElementById('btn-entrar');
 const senha = document.getElementById('password');
 const incorrect = document.getElementById("incorrect");
 const verification =document.getElementById("verification")
+
 
 function changestyle(){
     let change_password = document.querySelector("div.change_password");
@@ -19,6 +21,9 @@ function changestyle(){
         change_password.style.display = "flex";
         
     }   
+
+}
+
 }
 
 btnEntrar.addEventListener('click', (event) => {
@@ -51,3 +56,4 @@ window.onload = () => {
         emailEntrar.value = usuario.email;
     }
   };
+

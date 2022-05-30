@@ -1,4 +1,7 @@
+
+import { createProductItemElement } from "../services/createElements.js";
 import { createProductItemElement, createCustomElement } from "../services/createElements.js";
+
 import { fetchProductGeneralCategorie, fetchCategories } from "../services/getAPIs.js";
 
 const urlParamns = new URLSearchParams(window.location.search);
@@ -6,12 +9,15 @@ const inputSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const sectionCardProducts = document.getElementById('cardProducts');
 const categoriasNav = document.querySelector('.categorias');
+const headerSearch = document.querySelector('.header-search');
+const filterName = document.querySelector('.filterName');
 const headerSearch = document.querySelector('.search');
 const filterName = document.querySelector('.filterName');
 const removeFilter = document.querySelector('.remove-filter');
 const loginCadastro = document.getElementById('login-cadastro');
 const numberCart = document.querySelector('.number-card');
 const usuario = JSON.parse(localStorage.getItem('login'));
+
 
 
 const loader = (bol) => {
@@ -42,7 +48,10 @@ const listProducts = async () => {
     if (urlParamns.get('categoria') !== '') {
       const findNameCategorie = categories.find((ev) => ev.id === urlParamns.get('categoria'));
       filterName.innerText = findNameCategorie.name;
+
+
       removeFilter.style.display = 'flex';
+
     }
     categories.pop();
     categories.forEach((element) => {
@@ -81,6 +90,11 @@ const listProducts = async () => {
     }
   };
 
+
+  window.onload = () => { 
+    listProducts();
+    selectCategories();
+
   removeFilter.addEventListener('click', () => {
     window.location.href = `/pages/pesquisar.html?categoria=&product=${urlParamns.get('product')}`
   })
@@ -98,4 +112,5 @@ const listProducts = async () => {
     listProducts();
     selectCategories();
     verifications();
+
   };
