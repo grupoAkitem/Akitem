@@ -1,8 +1,4 @@
-
-import { createProductItemElement } from "./services/createElements.js";
-
 import { createProductItemElement, createCustomElement } from "./services/createElements.js";
-
 import { fetchCategories, fetchProductGeneral } from "./services/getAPIs.js";
 
 const allCategories = document.getElementById('all-categories');
@@ -64,11 +60,6 @@ const redirectPesquisar = () => {
   })
 
 
-window.onload = () => { 
-    selectCategories();
-    createCardsProducts();
-
-
   const verifications = () => {
     if (usuario !== null && usuario.active !== false) {
       numberCart.innerText = usuario.cart.length;
@@ -78,9 +69,8 @@ window.onload = () => {
     } 
   };
 
-window.onload = () => { 
+  window.onload = () => {
     selectCategories();
     createCardsProducts();
     verifications();
-
-  };
+  }
