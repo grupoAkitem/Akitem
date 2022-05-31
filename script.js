@@ -6,11 +6,9 @@ const inputSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const selectdCategories = document.getElementById('all-categories');
 const sectionCardProducts = document.getElementById('cardProducts');
-
 const loginCadastro = document.getElementById('login-cadastro');
 const numberCart = document.querySelector('.number-card');
 const usuario = JSON.parse(localStorage.getItem('login'));
-
 
   // function para criar o select das categorias
   const selectCategories = async () => {
@@ -69,8 +67,8 @@ const redirectPesquisar = () => {
     } 
   };
 
-  window.onload = () => {
+window.onload = () => { 
     selectCategories();
     createCardsProducts();
     verifications();
-  }
+  };

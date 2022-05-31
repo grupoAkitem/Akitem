@@ -1,8 +1,4 @@
-
-import { createImageElement, createProductItemElement } from "../services/createElements.js";
-
 import { createImageElement, createProductItemElement, createCustomElement } from "../services/createElements.js";
-
 import { fetchItem, fetchProductGeneral, fetchCep } from "../services/getAPIs.js";
 
 const preview = document.querySelector('.preview');
@@ -21,7 +17,6 @@ const inputCep = document.getElementById('inputCep');
 const btnCep = document.getElementById('btnCep');
 const prazoCalculado = document.querySelector('.prazo-calculado');
 const calcularPrazo = document.querySelector('.calcular-prazo');
-
 const bntAddCart = document.querySelector('.bnt-addCart');
 const inputSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
@@ -37,7 +32,6 @@ const cart = {
     title: '',
     quanty: 1,
 }
-
 
 const createGalery = ({ pictures }) => {
     mainImage.src = pictures[0].url
@@ -85,14 +79,12 @@ const createTable = (details) => {
     })
 };
 
-
 const createInformayionsCart = ({ title, price, thumbnail, id }) => {
     cart.id = id;
     cart.thumb = thumbnail;
     cart.price = price.toFixed(2);
     cart.title = title;
 };
-
 
 const mainImageDynamic = ({ target }) => {
     if (target.className === 'preview-image') {
@@ -104,12 +96,9 @@ preview.addEventListener('click', mainImageDynamic)
 const createDetails = async () => {
     const results = await fetchItem();
     createGalery(results);
-
-    createInformations(results)
     createInformations(results);
     createInformayionsCart(results);
     verifications();
-
 }
 
 const createRelacionedProducts = async (product) => {
@@ -159,14 +148,11 @@ btnCep.addEventListener('click', async () => {
         const en = `${endre.logradouro}, ${endre.bairro} - ${endre.localidade}/${endre.uf}`;
         endereco.innerText = en
         prazoCalculado.style.display = 'flex';
-
         calcularPrazo.style.display = 'none';
-    }
-})
-
+        if (usuario !== null && usuario.active !== false) {
         usuario.cep = inputCep.value;
         localStorage.setItem('login', JSON.stringify(usuario));
-        calcularPrazo.style.display = 'none';
+        }
     } else {
         inputCep.style.border = '2px solid red';
     }
@@ -242,7 +228,6 @@ const verifications = () => {
         }
     } 
 };
-
 
 window.onload = () => {
     createDetails();
