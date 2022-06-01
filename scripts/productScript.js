@@ -23,6 +23,7 @@ const searchBtn = document.getElementById('search-btn');
 const favoritar = document.getElementById('favoritar');
 const fav = document.querySelector('.fav');
 const numberCart = document.querySelector('.number-card');
+const btnComprar = document.querySelector('.bnt-comprar');
 const loginCadastro = document.getElementById('login-cadastro');
 const usuario = JSON.parse(localStorage.getItem('login'));
 const cart = {
@@ -207,6 +208,16 @@ const redirectPesquisar = () => {
             fav.innerHTML = 'favorite_border';
         }
     }) 
+
+    btnComprar.addEventListener('click', () => {
+        if (usuario === null || usuario.active === false) {
+            window.location.href = '/pages/login.html';
+        } else {
+            usuario.cart = [...usuario.cart, cart];
+            localStorage.setItem('login', JSON.stringify(usuario));
+            window.location.href = '/pages/carrinho.html';
+        }
+    })
 
 const verifications = () => {
     if (usuario !== null && usuario.active !== false) {
