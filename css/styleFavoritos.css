@@ -1,3 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+body {
+    background-color: rgb(235, 235, 235);
+}
+
 header {
     background-image: radial-gradient(yellow, rgb(255, 208, 0));
     display: flex;
@@ -104,4 +121,146 @@ header a:hover {
     border: 1.6px solid green;
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
+}
+
+#cardProducts {
+    display: flex;
+    flex-basis: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.infoCastrais {
+    border-radius: 5px;
+    width: 28%;
+    height: 100%;
+    padding: 30px;
+    background-color: white;
+}
+
+.itn-favs{
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 71%;
+}
+
+.display-tamanho p {
+    margin: 0;
+}
+
+.display-tamanho {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    color: rgb(54, 54, 54);
+}
+
+#btn-trocar-senha {
+    width: 100%;
+    padding: 5px;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: green;
+}
+
+#btn-trocar-senha:hover {
+    background-color: rgb(1, 184, 1);
+}
+
+#btn-trocar-senha:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#btn-trocar-senhaa {
+    width: 100%;
+    padding: 5px;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: green;
+}
+
+#btn-trocar-senhaa:hover {
+    background-color: rgb(1, 184, 1);
+}
+
+#btn-trocar-senhaa:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#modal-trocar-senha {
+    position: absolute;
+    background-color: rgba(41, 41, 41, 0.63);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form-senha {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.form-senha {
+    text-align: center;
+}
+
+.inputTrocSenha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+#sair-trocarSenha {
+    position: absolute;
+    margin-left: 630px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 280px;
+}
+
+#sair-trocarSenha:hover {
+   color: red;
+}
+
+#btn-deslogar {
+    width: 100%;
+    padding: 5px;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: red;
+}
+
+#btn-deslogar:hover {
+    background-color: rgb(153, 1, 1);
+}
+
+#btn-deslogar:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }

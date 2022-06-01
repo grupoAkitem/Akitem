@@ -51,7 +51,7 @@ const ceateCartProducts = () => {
    
       divTd1.className = "div-img-table";
       divTd1.id = element.id;
-      divTd1.appendChild(createImageElement(element.thumb, 'img'));
+      divTd1.appendChild(createImageElement(element.thumbnail, 'img'));
       divTd1.appendChild(createCustomElement('p', 'title', element.title));
       td1.appendChild(divTd1);
 
@@ -160,13 +160,13 @@ const verifications = () => {
     loginCadastro.href = '/pages/favoritos.html'
     loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
 
-    //         Para disp. mobile     //
-    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
-    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
-    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
-    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
-    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
-    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
+       //         Para disp. mobile     //
+       document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
+       document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
+       document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
+       document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
+       document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
+       document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
   } 
 };
 

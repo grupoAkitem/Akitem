@@ -28,7 +28,7 @@ const loginCadastro = document.getElementById('login-cadastro');
 const usuario = JSON.parse(localStorage.getItem('login'));
 const cart = {
     id: '',
-    thumb: '',
+    thumbnail: '',
     price: '',
     title: '',
     quanty: 1,
@@ -82,7 +82,7 @@ const createTable = (details) => {
 
 const createInformayionsCart = ({ title, price, thumbnail, id }) => {
     cart.id = id;
-    cart.thumb = thumbnail;
+    cart.thumbnail = thumbnail;
     cart.price = price.toFixed(2);
     cart.title = title;
 };
@@ -237,6 +237,14 @@ const verifications = () => {
         if (usuario.cep !== '') {
             inputCep.value = usuario.cep;
         }
+
+           //         Para disp. mobile     //
+    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
+    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
+    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
+    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
+    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
+    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
     } 
 };
 
