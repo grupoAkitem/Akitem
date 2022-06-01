@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AkiTem</title>
+    <link rel="shortcut icon" href="/Imagens/Sem título-1.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +19,6 @@
     <link rel="stylesheet" href="/css/productStyle.css">
     <link rel="stylesheet" href="/css/cardProducts.css">
     <link rel="stylesheet" href="/css/mobile.css">
-
-
 </head>
 
 <body>
@@ -30,46 +29,42 @@
             <button id="search-btn" class="material-icons">search</button>
         </div>
         <nav class="nav-header">
-            <a class="material-icons" href="/pages/login.html">login</a>
-            <a class="material-icons" href="/index.html">home</a>
-            <a class="material-icons" href="">favorite</a>
+            <a id="login-cadastro" class="material-icons" href="/pages/login.html">login</a>
+            <a class="material-icons" href="">home</a>
+            <a class="material-icons" href="/pages/quemSomos.html">work</a>
             <a class="material-icons" href="/pages/carrinho.html">
                 shopping_cart
                 <span class="number-card">0</span>
             </a>
-
         </nav>
-
         <nav class="navbar navbar-dark navbar-expand-md">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-      
-          </nav>
-        
+
+        </nav>
     </header>
     <main>
-
         <div class="mobileMenu collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/pages/login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/pages/carrinho.html">Carrinho</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Favoritos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/pages/quemSomos.html">Quem Somos</a>
-              </li>
-            </ul>
-          </div>
 
+                <li class="nav-item">
+                    <a id="login" class="nav-link" href="/pages/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/carrinho.html">Carrinho <span id="cart-number"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Favoritos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pages/quemSomos.html">Quem Somos</a>
+                </li>
+            </ul>
+        </div>
         <section class="details">
             <section class="galery-image">
                 <div class="div-main-image">
@@ -113,7 +108,7 @@
                 </div>
                 <div class="share-fav">
                     <div id="favoritar">
-                        <span style="margin-right: 5px;" class="material-icons">favorite_border</span>
+                        <span style="margin-right: 5px;" class="fav material-icons">favorite_border</span>
                         <p>Favoritar</p>
                     </div>
                     <div id="compartilhar">
@@ -127,7 +122,7 @@
                 <div class="section-CEP">
                     <div class="calcular-prazo">
                         <h4>calcular prazo</h4>
-                        <input id="inputCep" type="text">
+                        <input maxlength="8" placeholder="CEP" id="inputCep" type="text">
                         <button id="btnCep">ok</button>
                     </div>
                     <div class="prazo-calculado">
@@ -153,9 +148,10 @@
             <h2 style="font-size: 21px;">VOCÊ TAMBÉM PODE GOSTAR</h2>
             <hr>
             <div class='categoria'>
-                <button id="voltar" class="btn-prev"><</button>
-                <ul class="listProducts"></ul>
-                <button id="passar" class="btn-prev">></button>
+                <button id="voltar" class="btn-prev">
+                    < </button>
+                        <ul class="listProducts"></ul>
+                        <button id="passar" class="btn-prev"> > </button>
             </div>
         </section>
 
@@ -168,11 +164,23 @@
         </section>
 
         <section class="avaliacoes">
-            <h2 style="font-size: 21px;">Avaliações</h2>
+            <div class="add-aval">
+                <div style="display: flex;">
+                    <h2 style="font-size: 21px;">Avaliações</h2>
+                    <div style="margin-left: 20px;" class="startsAva">
+                        <span class="material-icons seleStar">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                    </div>
+                </div>
+                <button>Avaliar</button>
+            </div>
             <hr>
-            <form>
-                
-            </form>
+            <div>
+                <p>Sem Avaliações</p>
+            </div>
         </section>
     </main>
 

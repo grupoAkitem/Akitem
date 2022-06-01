@@ -3,7 +3,6 @@ body {
     padding: 0;
     height: 100%;
     max-width: 100%;
-    background-color: #fff;
 }
 :root{
     --cor1: rgb(25, 67, 204);
@@ -33,6 +32,8 @@ header a:hover {
     text-decoration: none;
     color: green;
 }
+
+
 
 
 .login{
@@ -265,6 +266,13 @@ header a:hover {
     background: #f00;
 }
 
+#verification {
+    display: none;
+    width: 100%;
+    align-items: center;
+    color: red;
+    padding-left: 20px;
+}
 
 @media(max-width:1440px) and (min-width: 770px){
     .login{
