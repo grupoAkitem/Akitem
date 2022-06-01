@@ -16,36 +16,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/css/carrinho.css">
+    <link rel="stylesheet" href="/css/styleFavoritos.css">
+    <link rel="stylesheet" href="/css/cardProducts.css">
+    <link rel="stylesheet" href="/css/mobile.css">
 </head>
+
 <body>
-    <header>
+    <header class="headerSearch">
         <a href="/index.html">AkiTem</a>
         <div class="search">
-            <input id="search" type="text" placeholder="Pesquisar">
-            <button id="search-btn" class="material-icons">search</button>
+          <input id="search" type="text" placeholder="Pesquisar">
+          <button id="search-btn" class="material-icons">search</button>
         </div>
         <nav class="nav-header">
-            <a class="material-icons" href="/pages/login.html">login</a>
-            <a class="material-icons" href="/index.html">home</a>
-            <a class="material-icons" href="">favorite</a>
-            <a class="material-icons" href="/pages/carrinho.html">
-                shopping_cart
-                <span class="number-card">0</span>
-            </a>
-
+          <a id="login-cadastro" class="material-icons" href="/pages/login.html">login</a>
+          <a class="material-icons" href="">home</a>
+          <a class="material-icons" href="/pages/quemSomos.html">work</a>
+          <a class="material-icons" href="/pages/carrinho.html">
+            shopping_cart
+            <span class="number-card">0</span>
+          </a>
         </nav>
-    </header>
-    <div class="container">
-        <div class="resu">
-            <h3>Resumo de produtos</h3>
-        </div>
-        <div class="continue-button">
-            <button><a href="#">Continuar</a></button>
-        </div>
-    </div> 
-    <section class="cartProducts"></section>
+         <!--Adição Menu mobile-->
+         <nav class="navbar navbar-dark navbar-expand-md">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+        </nav>
+        <!--Fim Menu mobile-->
+      </header>
+    <!--Adição Menu mobile-->
+    <div class="mobileMenu collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/carrinho.html">Carrinho</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Favoritos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/quemSomos.html">Quem Somos</a>
+        </li>
+      </ul>
+    </div>
+    <!--Fim Menu mobile-->
+    <main>
+        <section>
 
-    <script type="module" src="/scripts/carrinho.js"></script>
+        </section>
+    </main>
+    <script type="module" src="/scripts/favoritos.js"></script>
 </body>
+
 </html>
