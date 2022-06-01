@@ -13,24 +13,24 @@ const inserirCupom = document.getElementById("inserirCupom");
 const btnAddCupom = document.getElementById("btnAddCupom");
 const descriCupom = document.getElementById("descriCupom");
 const divCupom = document.querySelector('.cupom');
-const verification = document.getElementById("verification");
+const verification =document.getElementById("verification");
 let activeCupom = false;
 
 const redirectPesquisar = () => {
-  window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
-  inputSearch.value = '';
+    window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
+    inputSearch.value = '';
 }
-
-searchBtn.addEventListener('click', () => {
-  if (inputSearch.value !== '') {
-    redirectPesquisar();
-  }
-});
-document.addEventListener('keypress', ({ key }) => {
-  if (key === 'Enter' && inputSearch.value !== '') {
-    redirectPesquisar();
-  }
-})
+  
+  searchBtn.addEventListener('click', () => {
+    if (inputSearch.value !== '') {
+      redirectPesquisar();
+    }
+    });
+    document.addEventListener('keypress', ({ key }) => {
+    if (key === 'Enter' && inputSearch.value !== '') {
+      redirectPesquisar();
+    }
+  })
 
 const ceateCartProducts = () => {
   const removeItemCart = usuario.cart.some((ev) => ev.quanty <= 0);
@@ -40,47 +40,47 @@ const ceateCartProducts = () => {
     localStorage.setItem('login', JSON.stringify(usuario));
     window.location.href = '/pages/carrinho.html';
   }
-  usuario.cart.forEach((element) => {
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const divTd1 = document.createElement('div');
-    const td2 = document.createElement('td');
-    const divTd2 = document.createElement('div');
-    const td3 = document.createElement('td');
-    const td4 = document.createElement('td');
+  usuario.cart.forEach(( element ) => {
+   const tr = document.createElement('tr');
+   const td1 = document.createElement('td');
+   const divTd1 = document.createElement('div');
+   const td2 = document.createElement('td');
+   const divTd2 = document.createElement('div');
+   const td3 = document.createElement('td');
+   const td4 = document.createElement('td');
+   
+      divTd1.className = "div-img-table";
+      divTd1.id = element.id;
+      divTd1.appendChild(createImageElement(element.thumb, 'img'));
+      divTd1.appendChild(createCustomElement('p', 'title', element.title));
+      td1.appendChild(divTd1);
 
-    divTd1.className = "div-img-table";
-    divTd1.id = element.id;
-    divTd1.appendChild(createImageElement(element.thumb, 'img'));
-    divTd1.appendChild(createCustomElement('p', 'title', element.title));
-    td1.appendChild(divTd1);
+      divTd2.className = "add-remove";
+      divTd2.id = element.id;
+      divTd2.appendChild(createCustomElement('button', 'btnRem', '-'));
+      divTd2.appendChild(createCustomElement('span', 'quanti', element.quanty));
+      divTd2.appendChild(createCustomElement('button', 'btnAdd', '+'));
+      td2.appendChild(divTd2);
+      
+  const fixedPrice = element.price * element.quanty;
 
-    divTd2.className = "add-remove";
-    divTd2.id = element.id;
-    divTd2.appendChild(createCustomElement('button', 'btnRem', '-'));
-    divTd2.appendChild(createCustomElement('span', 'quanti', element.quanty));
-    divTd2.appendChild(createCustomElement('button', 'btnAdd', '+'));
-    td2.appendChild(divTd2);
+      td3.innerText = element.id;
+      td4.innerText = fixedPrice.toFixed(2);
+      td3.className = "align-center";
+      td4.className = "align-center";
+      td4.style.fontWeight = '700';
 
-    const fixedPrice = element.price * element.quanty;
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
 
-    td3.innerText = element.id;
-    td4.innerText = fixedPrice.toFixed(2);
-    td3.className = "align-center";
-    td4.className = "align-center";
-    td4.style.fontWeight = '700';
-
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
-    tr.appendChild(td4);
-
-    tBodyProducts.appendChild(tr);
+   tBodyProducts.appendChild(tr);
   });
 };
 
 const addItemInCart = (id) => {
-  usuario.cart.forEach((eve) => {
+ usuario.cart.forEach((eve) => {
     if (eve.id === id) {
       eve.quanty += 1;
     }
@@ -110,9 +110,9 @@ tBodyProducts.addEventListener('click', ({ target }) => {
       case 'btnAdd':
         addItemInCart(target.parentNode.id)
         break;
-      case 'btnRem':
-        removeItemOfCart(target.parentNode.id)
-        break;
+        case 'btnRem':
+          removeItemOfCart(target.parentNode.id)
+          break;
       default:
         break;
     }
@@ -130,11 +130,11 @@ const createresumo = () => {
   usuario.cart.forEach((e) => {
     totalCompra += (e.quanty * e.price);
   });
-
+  
   const totlCupom = totalCompra - (totalCompra * 0.7);
   numberItens.innerText = quantyTotal;
   totalPrice.innerText = totalCompra.toFixed(2);
-  totalCupom.innerText = (activeCupom) ? totlCupom.toFixed(2) : totalCompra.toFixed(2);
+  totalCupom.innerText = (activeCupom) ? totlCupom.toFixed(2) : totalCompra.toFixed(2); 
 };
 
 btnAddCupom.addEventListener('click', () => {
@@ -159,15 +159,7 @@ const verifications = () => {
     loginCadastro.innerText = 'perm_identity';
     loginCadastro.href = '/pages/favoritos.html'
     loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
-
-    //         Para disp. mobile     //
-    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
-    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
-    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
-    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
-    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
-    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
-  }
+  } 
 };
 
 window.onload = () => {

@@ -110,21 +110,21 @@ const createRelacionedProducts = async (product) => {
         lis.appendChild(createProductItemElement(ev))
         listProducts.appendChild(lis);
     })
-
+    
 };
 
-const time = () => {
+const time  = () => {
     setTimeout(() => {
         const clearLinkCopy = document.getElementById('linkCopy');
         clearLinkCopy.parentNode.removeChild(clearLinkCopy);
-    }, 2000)
+    },2000)
 }
 
 function carrosselProducts({ target }) {
-    if (target.id == 'passar') {
+    if(target.id == 'passar') {
         listProducts.scrollBy(+200, 0)
     }
-    if (target.id == 'voltar') {
+    if(target.id == 'voltar') {
         listProducts.scrollBy(-200, 0)
     }
 }
@@ -151,8 +151,8 @@ btnCep.addEventListener('click', async () => {
         prazoCalculado.style.display = 'flex';
         calcularPrazo.style.display = 'none';
         if (usuario !== null && usuario.active !== false) {
-            usuario.cep = inputCep.value;
-            localStorage.setItem('login', JSON.stringify(usuario));
+        usuario.cep = inputCep.value;
+        localStorage.setItem('login', JSON.stringify(usuario));
         }
     } else {
         inputCep.style.border = '2px solid red';
@@ -162,81 +162,82 @@ btnCep.addEventListener('click', async () => {
 const redirectPesquisar = () => {
     window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
     inputSearch.value = '';
-}
-
-searchBtn.addEventListener('click', () => {
-    if (inputSearch.value !== '') {
+  }
+  
+    searchBtn.addEventListener('click', () => {
+      if (inputSearch.value !== '') {
         redirectPesquisar();
-    }
-});
-document.addEventListener('keypress', ({ key }) => {
-    if (key === 'Enter' && inputSearch.value !== '') {
+      }
+      });
+    document.addEventListener('keypress', ({ key }) => {
+      if (key === 'Enter' && inputSearch.value !== '') {
         redirectPesquisar();
-    }
-})
+      }
+    })
 
-bntAddCart.addEventListener('click', () => {
-    if (usuario === null || usuario.active === false) {
-        window.location.href = '/pages/login.html';
-    } else if (bntAddCart.innerHTML !== 'done') {
-        usuario.cart = [...usuario.cart, cart];
-        localStorage.setItem('login', JSON.stringify(usuario));
-        numberCart.innerText = usuario.cart.length;
-        bntAddCart.innerHTML = 'done';
-    } else {
-        const offcart = usuario.cart.filter((ev) => ev.id !== cart.id);
-        usuario.cart = offcart;
-        localStorage.setItem('login', JSON.stringify(usuario));
-        numberCart.innerText = usuario.cart.length;
-        bntAddCart.innerHTML = 'add_shopping_cart';
-    }
-})
+    bntAddCart.addEventListener('click', () => {
+        if (usuario === null || usuario.active === false) {
+            window.location.href = '/pages/login.html';
+        } else if (bntAddCart.innerHTML !== 'done') {
+            usuario.cart = [...usuario.cart, cart];
+            localStorage.setItem('login', JSON.stringify(usuario));
+            numberCart.innerText = usuario.cart.length;
+            bntAddCart.innerHTML = 'done';
+        } else {
+            const offcart = usuario.cart.filter((ev) => ev.id !== cart.id);
+            usuario.cart = offcart;
+            localStorage.setItem('login', JSON.stringify(usuario));
+            numberCart.innerText = usuario.cart.length;
+            bntAddCart.innerHTML = 'add_shopping_cart';
+        }
+    })
 
 
-favoritar.addEventListener('click', () => {
-    if (usuario === null || usuario.active === false) {
-        window.location.href = '/pages/login.html';
-    }
-    if (fav.innerHTML === 'favorite_border') {
-        usuario.favoritos = [...usuario.favoritos, cart];
-        localStorage.setItem('login', JSON.stringify(usuario));
-        fav.innerHTML = 'favorite';
-    } else {
-        const offFav = usuario.favoritos.filter((ev) => ev.id !== cart.id);
-        usuario.favoritos = offFav;
-        localStorage.setItem('login', JSON.stringify(usuario));
-        fav.innerHTML = 'favorite_border';
-    }
-})
+    favoritar.addEventListener('click', () => {
+        if (usuario === null || usuario.active === false) {
+            window.location.href = '/pages/login.html';
+        } 
+        if (fav.innerHTML === 'favorite_border') {
+            usuario.favoritos = [...usuario.favoritos, cart];
+            localStorage.setItem('login', JSON.stringify(usuario));
+            fav.innerHTML = 'favorite';
+        } else {
+            const offFav = usuario.favoritos.filter((ev) => ev.id !== cart.id);
+            usuario.favoritos = offFav;
+            localStorage.setItem('login', JSON.stringify(usuario));
+            fav.innerHTML = 'favorite_border';
+        }
+    }) 
 
-btnComprar.addEventListener('click', () => {
-    if (usuario === null || usuario.active === false) {
-        window.location.href = '/pages/login.html';
-    } else {
-        usuario.cart = [...usuario.cart, cart];
-        localStorage.setItem('login', JSON.stringify(usuario));
-        window.location.href = '/pages/carrinho.html';
-    }
-})
+    btnComprar.addEventListener('click', () => {
+        if (usuario === null || usuario.active === false) {
+            window.location.href = '/pages/login.html';
+        } else {
+            usuario.cart = [...usuario.cart, cart];
+            localStorage.setItem('login', JSON.stringify(usuario));
+            window.location.href = '/pages/carrinho.html';
+        }
+    })
 
 const verifications = () => {
     if (usuario !== null && usuario.active !== false) {
+        const vericart = usuario.cart.some((e) => e.id === cart.id);
+        const verifav = usuario.favoritos.some((e) => e.id === cart.id);
+        numberCart.innerText = usuario.cart.length;
         numberCart.innerText = usuario.cart.length;
         loginCadastro.innerText = 'perm_identity';
         loginCadastro.href = '/pages/favoritos.html'
         loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
-
-
-        //         Para disp. mobile     //
-        document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
-        document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
-        document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
-        document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
-        document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
-        document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
-    }
-
-
+        if (vericart) {
+            bntAddCart.innerHTML = 'done';
+        }
+        if (verifav) {
+            fav.innerHTML = 'favorite';
+        }
+        if (usuario.cep !== '') {
+            inputCep.value = usuario.cep;
+        }
+    } 
 };
 
 window.onload = () => {

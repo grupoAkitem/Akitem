@@ -10,76 +10,65 @@ const loginCadastro = document.getElementById('login-cadastro');
 const numberCart = document.querySelector('.number-card');
 const usuario = JSON.parse(localStorage.getItem('login'));
 
-// function para criar o select das categorias
-const selectCategories = async () => {
-  const categories = await fetchCategories();
-  categories.pop();
-  categories.forEach((element) => {
-    const optionsCategories = document.createElement('option');
-    optionsCategories.value = element.id;
-    optionsCategories.innerHTML = element.name;
-    allCategories.appendChild(optionsCategories);
-  });
-};
-
-export const createCardsProducts = async (res) => {
-  if (!res) {
-    const { results } = await fetchProductGeneral();
-    results.forEach((element) => {
-      sectionCardProducts.appendChild(createProductItemElement(element));
+  // function para criar o select das categorias
+  const selectCategories = async () => {
+    const categories = await fetchCategories();
+    categories.pop();
+    categories.forEach((element) => {
+        const optionsCategories = document.createElement('option');
+        optionsCategories.value = element.id;
+        optionsCategories.innerHTML = element.name;
+        allCategories.appendChild(optionsCategories);
     });
-  } else {
-    res.forEach((element) => {
-      sectionCardProducts.appendChild(createProductItemElement(element));
-    });
-  }
-};
+    };
 
+    export const createCardsProducts = async (res) => {
+      if (!res) {
+        const { results } = await fetchProductGeneral();
+        results.forEach((element) => {
+          sectionCardProducts.appendChild(createProductItemElement(element));
+        });
+      } else {
+        res.forEach((element) => {
+          sectionCardProducts.appendChild(createProductItemElement(element));
+        });
+      }
+    };
+ 
 const redirectPesquisar = () => {
   window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
   inputSearch.value = '';
 }
 
-searchBtn.addEventListener('click', () => {
-  if (inputSearch.value !== '') {
-    redirectPesquisar();
-  }
-});
-document.addEventListener('keypress', ({ key }) => {
-  if (key === 'Enter' && inputSearch.value !== '') {
-    redirectPesquisar();
-  }
-})
+  searchBtn.addEventListener('click', () => {
+    if (inputSearch.value !== '') {
+      redirectPesquisar();
+    }
+    });
+  document.addEventListener('keypress', ({ key }) => {
+    if (key === 'Enter' && inputSearch.value !== '') {
+      redirectPesquisar();
+    }
+  })
 
-selectdCategories.addEventListener('click', ({ target }) => {
-  if (target.value !== 'categorias') {
-    window.location.href = `/pages/pesquisar.html?categoria=${target.value}&product=${inputSearch.value}`;
-  }
-})
-
-
-const verifications = () => {
-  if (usuario !== null && usuario.active !== false) {
-    numberCart.innerText = usuario.cart.length;
-    loginCadastro.innerText = 'perm_identity';
-    loginCadastro.href = '/pages/favoritos.html'
-    loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
+  selectdCategories.addEventListener('click', ({target}) => {
+    if (target.value !== 'categorias') {
+      window.location.href = `/pages/pesquisar.html?categoria=${target.value}&product=${inputSearch.value}`;
+    }
+  })
 
 
-    //         Para disp. mobile     //
-    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
-    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
-    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
-    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
-    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
-    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
-  }
+  const verifications = () => {
+    if (usuario !== null && usuario.active !== false) {
+      numberCart.innerText = usuario.cart.length;
+      loginCadastro.innerText = 'perm_identity';
+      loginCadastro.href = '/pages/favoritos.html'
+      loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
+    } 
+  };
 
-
-};
-
-window.onload = () => {
-  selectCategories();
-  createCardsProducts();
-  verifications();
-};
+window.onload = () => { 
+    selectCategories();
+    createCardsProducts();
+    verifications();
+  };
