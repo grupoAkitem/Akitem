@@ -51,7 +51,7 @@ const ceateCartProducts = () => {
    
       divTd1.className = "div-img-table";
       divTd1.id = element.id;
-      divTd1.appendChild(createImageElement(element.thumb, 'img'));
+      divTd1.appendChild(createImageElement(element.thumbnail, 'img'));
       divTd1.appendChild(createCustomElement('p', 'title', element.title));
       td1.appendChild(divTd1);
 

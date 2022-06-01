@@ -20,7 +20,7 @@ export  function createProductItemElement({ id, title, thumbnail, price }) {
     cardProduct.appendChild(createImageElement(thumbnail, 'item__image'));
     cardProduct.appendChild(createCustomElement('span', 'item__id', id));
     cardProduct.appendChild(createCustomElement('div', 'item__title', title));
-    cardProduct.appendChild(createCustomElement('span', 'item__add', `R$: ${ price.toFixed(2) }`));
+    cardProduct.appendChild(createCustomElement('span', 'item__add', `R$: ${ Number(price).toFixed(2) }`));
   
     return cardProduct;
   }

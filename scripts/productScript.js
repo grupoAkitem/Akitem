@@ -28,7 +28,7 @@ const loginCadastro = document.getElementById('login-cadastro');
 const usuario = JSON.parse(localStorage.getItem('login'));
 const cart = {
     id: '',
-    thumb: '',
+    thumbnail: '',
     price: '',
     title: '',
     quanty: 1,
@@ -82,7 +82,7 @@ const createTable = (details) => {
 
 const createInformayionsCart = ({ title, price, thumbnail, id }) => {
     cart.id = id;
-    cart.thumb = thumbnail;
+    cart.thumbnail = thumbnail;
     cart.price = price.toFixed(2);
     cart.title = title;
 };
