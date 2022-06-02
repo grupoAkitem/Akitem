@@ -32,6 +32,14 @@ const verifications = () => {
         loginCadastro.innerText = 'perm_identity';
         loginCadastro.href = '/pages/favoritos.html'
         loginCadastro.appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]))
+
+          //         Para disp. mobile     //
+    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
+    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
+    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
+    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
+    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
+    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
     } 
     };
 
@@ -41,7 +49,7 @@ verifications();
 
 
 
-
+const totalPrice = JSON.parse(localStorage.getItem('totalprice')); //pega o preço do localstorage
 
 const qs = (el) => document.querySelector(el);
 const qsa = (el) => document.querySelectorAll(el);
@@ -139,7 +147,7 @@ qs('.boleto form button').addEventListener('click', () => {
         return false
     } else {
         const doc = new jsPDF();
-        const valor = 100;
+        const valor = totalPrice;
         doc.setFontSize(16);
         doc.rect(0, 0, 220, 20);
         doc.rect(0, 0, 120, 20);
@@ -189,6 +197,10 @@ qs('.cartao form button').addEventListener('click', ()=>{
         inputError(val);
         return false;
     }
+    if(parcelas.value == 0){
+        inputError(parcelas)
+        return false;
+    }
     
     qs('.cartao').style.height = "300px";
     qs('.cartao').innerHTML = "<h2>Aguarde enquanto processamos os dados</h2>"
@@ -201,7 +213,7 @@ qs('.cartao form button').addEventListener('click', ()=>{
 
 /*-----------------------Pix/PicPay-------------------------*/
 window.onload = function(){
-    const paymentValue = 100; 
+    const paymentValue = totalPrice; 
     var QRcode =' https://chart.googleapis.com/chart?chs=300x300&cht=qr&chld=H&chl=Valor a ser pago: R$';
     const QRcodeContent = QRcode + encodeURIComponent(Number(paymentValue).toFixed(2));
     document.querySelector('.pix #qrcode').src = QRcodeContent;
@@ -303,3 +315,20 @@ else {
     limpa_formulário_cep();
 }
 };
+
+for(let i =1; i<=12; i++){
+    const option = document.createElement('option');
+    option.setAttribute("value", i);
+    if(i == 1){
+        option.text = `${i} parcela de R$${totalPrice.toFixed(2)}`;
+        qs("#parcelas").appendChild(option)
+    }
+    if( i%2 == 0){
+        option.text = `${i} parcelas de R$${(totalPrice/i).toFixed(2)}`;
+        qs("#parcelas").appendChild(option)
+    } 
+    if(totalPrice <=50 && i==4){
+        break
+    }
+    
+}

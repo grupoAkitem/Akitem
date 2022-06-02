@@ -237,6 +237,14 @@ const verifications = () => {
         if (usuario.cep !== '') {
             inputCep.value = usuario.cep;
         }
+
+           //         Para disp. mobile     //
+    document.querySelector(".nav-item #login").setAttribute("id", "login-cadastro");
+    document.querySelector(".nav-item #login-cadastro").innerText = 'perm_identity';
+    document.querySelector(".nav-item #login-cadastro").classList.add("material-icons")
+    document.querySelector(".nav-item #login-cadastro").href = '/pages/favoritos.html'
+    document.querySelector(".nav-item #login-cadastro").appendChild(createCustomElement('span', 'perfil-name', usuario.nome.split(' ')[0]));
+    document.getElementById("cart-number").innerText = `(${usuario.cart.length})`;
     } 
 };
 
