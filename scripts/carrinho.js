@@ -135,6 +135,7 @@ const createresumo = () => {
   numberItens.innerText = quantyTotal;
   totalPrice.innerText = totalCompra.toFixed(2);
   totalCupom.innerText = (activeCupom) ? totlCupom.toFixed(2) : totalCompra.toFixed(2); 
+  localStorage.setItem('totalprice', JSON.stringify(totalCompra)); 
 };
 
 btnAddCupom.addEventListener('click', () => {
