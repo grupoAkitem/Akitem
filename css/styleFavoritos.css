@@ -201,7 +201,8 @@ header a:hover {
 }
 
 #modal-trocar-senha {
-    position: absolute;
+    position: fixed;
+    z-index: 99999;
     background-color: rgba(41, 41, 41, 0.63);
     display: none;
     justify-content: center;
