@@ -278,7 +278,7 @@ p {
     text-align: center;
 }
 
-@media(max-width: 767px){
+@media(max-width: 850px){
     .pro{
         display:flex;
         flex-direction: column;
@@ -289,12 +289,18 @@ p {
         padding: 10px;
     }
 
+
     .div-img-table{
         flex-direction: column;
         align-items: center;
     }
     .div-img-table p{
         text-align: center;
+    }
+
+    .containerr{
+        align-self: center;
+        width: 90%;
     }
 }
 
@@ -314,8 +320,9 @@ p {
     }
 
     img{
-        width: 40%;
+        width: 35%;
     }
+
 
 }
 
