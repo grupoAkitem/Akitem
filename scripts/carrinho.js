@@ -145,7 +145,6 @@ btnAddCupom.addEventListener('click', () => {
     verification.style.display = 'none';
     activeCupom = true;
     createresumo();
-
   } else {
     verification.style.display = 'flex';
     inserirCupom.style.border = '1px solid red'

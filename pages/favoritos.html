@@ -26,7 +26,7 @@
     <section id="modal-trocar-senha">
         <div class="form-senha">
             <span id="sair-trocarSenha">X</span>
-            <div>
+            <div id="trocarSenha">
                 <h2>Alterar Senha</h2>
                 <hr>
                 <div class="inputTrocSenha">
@@ -72,23 +72,21 @@
       </header>
     <!--Adição Menu mobile-->
     <div class="mobileMenu collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pages/login.html">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pages/carrinho.html">Carrinho</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Favoritos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pages/quemSomos.html">Quem Somos</a>
-            </li>
-        </ul>
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a id="login" class="nav-link" href="/pages/login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/carrinho.html">Carrinho <span id="cart-number"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/quemSomos.html">Quem Somos</a>
+        </li>
+      </ul>
     </div>
     <!--Fim Menu mobile-->
     <main>
@@ -128,6 +126,13 @@
 
 
     <script type="module" src="/scripts/favoritos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

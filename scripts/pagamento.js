@@ -320,7 +320,7 @@ for(let i =1; i<=12; i++){
     const option = document.createElement('option');
     option.setAttribute("value", i);
     if(i == 1){
-        option.text = `${i} parcela de R$${totalPrice}`;
+        option.text = `${i} parcela de R$${totalPrice.toFixed(2)}`;
         qs("#parcelas").appendChild(option)
     }
     if( i%2 == 0){
