@@ -212,6 +212,7 @@ header a:hover {
 }
 
 .form-senha {
+    position: relative;
     width: 50%;
     height: 50%;
     display: flex;
@@ -236,6 +237,10 @@ header a:hover {
 
 #sair-trocarSenha {
     position: absolute;
+    cursor: pointer; 
+    right: 25px;
+    top: 25px;
+    font-size: 20px;
     margin-left: 630px;
     margin-right: 10px;
     cursor: pointer;
@@ -264,5 +269,51 @@ header a:hover {
 #btn-deslogar:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
+}
+
+@media(max-width:1024px){
+    #email{
+        display: inline-block;
+        word-break: break-all;
+    }
+    
+}
+@media(max-width: 767px){
+    .infoCastrais, .itn-favs{
+        width:100%;
+    }
+}
+
+@media(max-width: 550px){
+    h2{
+        font-size: 1.5rem;
+    }
+    #sair-trocarSenha{
+        top:40;
+        right: 40px;
+    }
+    #trocarSenha{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .inputTrocSenha{
+        display:flex;
+        flex-direction: column;
+        width: 100% ;
+    }
+    .trocSenhaIn{
+        width: 100%;
+    }
+    .form-senha{
+        width: 100%;
+        height: 80%;
+    }
+}
+
+@media(max-width: 375px){
+    .form-senha{
+        padding: 15px;
+    }
 }
 

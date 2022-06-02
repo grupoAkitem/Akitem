@@ -112,5 +112,3 @@ genderGroup.addEventListener('click', ({ target }) => {
 
 
 
-
-
