@@ -271,6 +271,13 @@ header a:hover {
     outline: 0;
 }
 
+#verification {
+    display: none;
+    width: 100%;
+    align-items: center;
+    color: red;
+}
+
 @media(max-width:1024px){
     #email{
         display: inline-block;

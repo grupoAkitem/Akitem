@@ -14,6 +14,9 @@ const tel = document.getElementById('tel');
 const gen = document.getElementById('gen');
 const cepp = document.getElementById('cep');
 
+const incorrect = document.getElementById("incorrect");
+const verification =document.getElementById("verification")
+
 const btnSenha = document.getElementById('btn-trocar-senha');
 const modalTrocSenha = document.getElementById('modal-trocar-senha');
 const inputsTrocSenha = document.querySelectorAll('.trocSenhaIn');
@@ -30,11 +33,30 @@ sairModal.addEventListener('click', () => {
 })
 
 btnSenhaConfirm.addEventListener('click', () => {
-    if (inputsTrocSenha[1].value === inputsTrocSenha[2].value && inputsTrocSenha[0].value === usuario.senha && inputsTrocSenha[2].value !== '') {
+    const verificaIgual = inputsTrocSenha[1].value !== inputsTrocSenha[2].value;
+    const verificaSenhaAntiga = inputsTrocSenha[0].value !== usuario.senha;
+    const verificaVazia = inputsTrocSenha[1].value === '';
+    const verificaMinCarac = inputsTrocSenha[1].value.length < 6;
+    if (verificaSenhaAntiga){
+        incorrect.innerText = 'Senha Atual Incorreta'
+        verification.style.display = 'flex';
+    } else if (verificaIgual) {
+        incorrect.innerText = 'As senhas novas não são equivalentes'
+        verification.style.display = 'flex';
+    } else if (verificaVazia) {
+        incorrect.innerText = 'Preencha Todos os campos'
+        verification.style.display = 'flex';
+    } else if (verificaMinCarac) {
+        incorrect.innerText = 'Sua nova senha precisa ter mais de 6 caracteres'
+        verification.style.display = 'flex';
+    } else if (inputsTrocSenha[1].value === inputsTrocSenha[2].value && inputsTrocSenha[0].value === usuario.senha && inputsTrocSenha[2].value !== '') {
         usuario.active = false;
         usuario.senha = inputsTrocSenha[1].value;
         localStorage.setItem('login', JSON.stringify(usuario));
         window.location.href = '/pages/login.html';
+    } else {
+        incorrect.innerText = 'Usuário não encontrado! Crie um cadastro grátis'
+        verification.style.display = 'flex';
     }
 })
 
