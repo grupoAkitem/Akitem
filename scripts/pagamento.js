@@ -217,9 +217,9 @@ window.onload = function(){
     var QRcode =' https://chart.googleapis.com/chart?chs=300x300&cht=qr&chld=H&chl=Valor a ser pago: R$';
     const QRcodeContent = QRcode + encodeURIComponent(Number(paymentValue).toFixed(2));
     document.querySelector('.pix #qrcode').src = QRcodeContent;
-    qs('.pix .form-value').innerHTML = `Valor da compra R$${paymentValue.toFixed(2)}`
+    qs('.pix .form-value').innerHTML = `Valor da compra R$${Number(paymentValue).toFixed(2)}`
     document.querySelector('.picpay #qrcode').src = QRcodeContent;
-    qs('.picpay .form-value').innerHTML = `Valor da compra R$${paymentValue.toFixed(2)}`
+    qs('.picpay .form-value').innerHTML = `Valor da compra R$${Number(paymentValue).toFixed(2)}`
 }
 
 
@@ -320,11 +320,11 @@ for(let i =1; i<=12; i++){
     const option = document.createElement('option');
     option.setAttribute("value", i);
     if(i == 1){
-        option.text = `${i} parcela de R$${totalPrice.toFixed(2)}`;
+        option.text = `${i} parcela de R$${Number(totalPrice).toFixed(2)}`;
         qs("#parcelas").appendChild(option)
     }
     if( i%2 == 0){
-        option.text = `${i} parcelas de R$${(totalPrice/i).toFixed(2)}`;
+        option.text = `${i} parcelas de R$${(Number(totalPrice)/i).toFixed(2)}`;
         qs("#parcelas").appendChild(option)
     } 
     if(totalPrice <=50 && i==4){

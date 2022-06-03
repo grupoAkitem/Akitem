@@ -248,6 +248,29 @@ const verifications = () => {
     } 
 };
 
+const btnAvaliar = document.getElementById('btn-avaliar');
+const modalTrocSenha = document.getElementById('modal-trocar-senha');
+const inputsTrocSenha = document.querySelectorAll('.trocSenhaIn');
+const btnSenhaConfirm = document.getElementById('btn-trocar-senhaa');
+const sairModal = document.getElementById('sair-trocarSenha');
+
+btnAvaliar.addEventListener('click', () => {
+    modalTrocSenha.style.display = 'flex';
+})
+
+sairModal.addEventListener('click', () => {
+    modalTrocSenha.style.display = 'none';
+})
+
+btnSenhaConfirm.addEventListener('click', () => {
+    if (inputsTrocSenha[1].value === inputsTrocSenha[2].value && inputsTrocSenha[0].value === usuario.senha && inputsTrocSenha[2].value !== '') {
+        usuario.active = false;
+        usuario.senha = inputsTrocSenha[1].value;
+        localStorage.setItem('login', JSON.stringify(usuario));
+        window.location.href = '/pages/login.html';
+    }
+})
+
 window.onload = () => {
     createDetails();
 };
