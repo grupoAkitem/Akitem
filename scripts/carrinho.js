@@ -13,6 +13,7 @@ const inserirCupom = document.getElementById("inserirCupom");
 const btnAddCupom = document.getElementById("btnAddCupom");
 const descriCupom = document.getElementById("descriCupom");
 const divCupom = document.querySelector('.cupom');
+const continueButton = document.querySelector('.continue-button');
 const verification =document.getElementById("verification");
 let activeCupom = false;
 
@@ -20,6 +21,8 @@ const redirectPesquisar = () => {
     window.location.href = `/pages/pesquisar.html?categoria=&product=${inputSearch.value}`
     inputSearch.value = '';
 }
+
+  continueButton.addEventListener('click', () => window.location.href = '/pages/pagamento.html')
   
   searchBtn.addEventListener('click', () => {
     if (inputSearch.value !== '') {
@@ -132,10 +135,11 @@ const createresumo = () => {
   });
   
   const totlCupom = totalCompra - (totalCompra * 0.7);
+  const veriCupom = (activeCupom) ? totlCupom.toFixed(2) : totalCompra.toFixed(2); 
   numberItens.innerText = quantyTotal;
   totalPrice.innerText = totalCompra.toFixed(2);
-  totalCupom.innerText = (activeCupom) ? totlCupom.toFixed(2) : totalCompra.toFixed(2); 
-  localStorage.setItem('totalprice', JSON.stringify(totalCompra)); 
+  totalCupom.innerText = veriCupom; 
+  localStorage.setItem('totalprice', JSON.stringify(veriCupom)); 
 };
 
 btnAddCupom.addEventListener('click', () => {
