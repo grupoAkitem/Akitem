@@ -147,7 +147,7 @@ qs('.boleto form button').addEventListener('click', () => {
         return false
     } else {
         const doc = new jsPDF();
-        
+        const valor = totalPrice
         doc.setFontSize(16);
         doc.rect(0, 0, 220, 20);
         doc.rect(0, 0, 120, 20);
@@ -156,7 +156,7 @@ qs('.boleto form button').addEventListener('click', () => {
 
 
         doc.text('Beneficiário: Akitem', 15, 13);
-        doc.text(`Valor: R$${totalPrice}`, 122, 13)
+        doc.text(`Valor: R$${valor}`, 122, 13)
         doc.text(`Pagador: ${nameBill.value}`, 15, 30);
         doc.text(`CPF:  ${cpfBill.value}`, 15, 45);
         doc.text(`${addressBill.value}     Nº ${numBill.value}`, 15, 60);
@@ -320,7 +320,7 @@ for(let i =1; i<=12; i++){
     const option = document.createElement('option');
     option.setAttribute("value", i);
     if(i == 1){
-        option.text = `${i} parcela de R$${Number(totalPrice).toFixed(2)}`;
+        option.text = `${i} parcela de R$${totalPrice}`;
         qs("#parcelas").appendChild(option)
     }
     if( i%2 == 0){
