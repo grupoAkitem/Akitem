@@ -17,6 +17,8 @@ const inputCep = document.getElementById('inputCep');
 const btnCep = document.getElementById('btnCep');
 const prazoCalculado = document.querySelector('.prazo-calculado');
 const calcularPrazo = document.querySelector('.calcular-prazo');
+const seleStartsAva = document.querySelector('.seleStartsAva');
+const startsAva = document.querySelectorAll('.startsAva');
 const bntAddCart = document.querySelector('.bnt-addCart');
 const inputSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
@@ -34,6 +36,24 @@ const cart = {
     quanty: 1,
 }
 
+const createStars = (ind) => {
+    for (let i = 0; i < 5; i += 1) {
+        const sta = document.createElement('span');
+        const sta1 = document.createElement('span');
+        if (i <= ind) {
+            sta.className = 'material-icons seleStar'
+            sta1.className = 'material-icons seleStar'
+        } else {
+            sta.className = 'material-icons'
+            sta1.className = 'material-icons'
+        }
+        sta.innerText = 'star';
+        sta1.innerText = 'star';
+
+        startsAva[0].appendChild(sta);
+        startsAva[1].appendChild(sta1);
+    }
+};
 const createGalery = ({ pictures }) => {
     mainImage.src = pictures[0].url
     if (pictures.length > 5) {
@@ -100,6 +120,7 @@ const createDetails = async () => {
     createInformations(results);
     createInformayionsCart(results);
     verifications();
+    createStars();
 }
 
 const createRelacionedProducts = async (product) => {
@@ -249,27 +270,18 @@ const verifications = () => {
 };
 
 const btnAvaliar = document.getElementById('btn-avaliar');
-const modalTrocSenha = document.getElementById('modal-trocar-senha');
-const inputsTrocSenha = document.querySelectorAll('.trocSenhaIn');
-const btnSenhaConfirm = document.getElementById('btn-trocar-senhaa');
+const modalAvaliar = document.getElementById('modal-avaliar');
 const sairModal = document.getElementById('sair-trocarSenha');
 
 btnAvaliar.addEventListener('click', () => {
-    modalTrocSenha.style.display = 'flex';
+    modalAvaliar.style.display = 'flex';
 })
 
 sairModal.addEventListener('click', () => {
-    modalTrocSenha.style.display = 'none';
+    modalAvaliar.style.display = 'none';
 })
 
-btnSenhaConfirm.addEventListener('click', () => {
-    if (inputsTrocSenha[1].value === inputsTrocSenha[2].value && inputsTrocSenha[0].value === usuario.senha && inputsTrocSenha[2].value !== '') {
-        usuario.active = false;
-        usuario.senha = inputsTrocSenha[1].value;
-        localStorage.setItem('login', JSON.stringify(usuario));
-        window.location.href = '/pages/login.html';
-    }
-})
+
 
 window.onload = () => {
     createDetails();
