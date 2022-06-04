@@ -291,7 +291,7 @@ header a:hover {
     }
 }
 
-@media(max-width: 550px){
+@media(max-width: 670px){
     h2{
         font-size: 1.5rem;
     }
