@@ -118,12 +118,12 @@
 
 
 
-                    <input type="text" name="cpf" id="cpfBill" placeholder="CPF" autocomplete="off" minlength="14"
+                    <input type="text" name="cpf" id="cpfBill" placeholder="CPF" autocomplete="off" minlength="11"
                         required>
 
 
 
-                    <input type="text" name="cepBill" id="cepBill" placeholder="CEP" minlength="9"
+                    <input type="text" name="cepBill" id="cepBill" placeholder="CEP" minlength="8" maxlength="9"
                         onblur="pesquisacep(this.value)" required>
 
 
@@ -164,7 +164,7 @@
                     <input type="text" placeholder="Nome Completo" name="cardName" id="cardName" minlength="5" required>
 
 
-                    <input type="text" name="cpf" id="cardCpf" placeholder="CPF" minlength="14" required>
+                    <input type="text" name="cpf" id="cardCpf" placeholder="CPF" minlength="11" required>
 
 
                     <input type="text" inputmode="numeric" name="numCartao" id="numCartao"
