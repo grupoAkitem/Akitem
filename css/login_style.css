@@ -141,7 +141,7 @@ header a:hover {
 
 
 .change_password{
-    position: absolute;
+    position: fixed;
     display: none;
     flex-direction: column;
     top: 50%;
@@ -275,6 +275,7 @@ header a:hover {
 #verification {
     display: none;
     width: 100%;
+    color: #f00;
     align-items: center;
     padding-left: 20px;
     margin-bottom: 10px;
