@@ -21,6 +21,8 @@ function changestyle(){
         verificaEmail.style.display = "block";
        BconfirmaSenha.style.display = "none";
        document.querySelector("#modal-trocar-senha #verification").style.display = 'none';
+       document.getElementById("nova_senha").value = ""
+       document.getElementById("confirmar_senha").value = ""
         
     } else {
         change_password.style.display = "flex";
@@ -119,14 +121,8 @@ verificaEmail.addEventListener("click", ()=>{
                  iconI.innerText = "dangerous";
                 verificarTrocSenha.style.display = 'flex';
         
-            } else if(senhaIgualAnterior){
-                erro.innerText = "A senha não pode ser igual a senha anterior";
-                 iconI.innerText = "dangerous";
-                verificarTrocSenha.style.display = 'flex';
-                
             } else{
                 usuario.senha = novaSenha.value;
-                localStorage.setItem('login', JSON.stringify(usuario));
                 verificarTrocSenha.style.display = 'flex';
                 erro.style.display = 'none';
                 iconI.style.display = 'none';
@@ -134,8 +130,6 @@ verificaEmail.addEventListener("click", ()=>{
                 correct.innerText = "Senha criada com sucesso"
                 correct.style.display = 'block';
                 iconC.style.display = 'block';
-                novaSenha.value = "";
-                confSenha.value = "";
                 
                
             }
@@ -148,5 +142,3 @@ verificaEmail.addEventListener("click", ()=>{
         })
     }
 })
-
-
