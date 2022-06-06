@@ -30,6 +30,7 @@ const btnComprar = document.querySelector('.bnt-comprar');
 const inputsAval = document.querySelectorAll('.inputsAvaliacaoo');
 const loginCadastro = document.getElementById('login-cadastro');
 const btnConfirmarAval = document.getElementById('btn-avaliarr');
+const numberAvaliacao = document.getElementById('number-avaliacao');
 const usuario = JSON.parse(localStorage.getItem('login'));
 const avalia = JSON.parse(localStorage.getItem('avaliacoesProdutos'));
 const idDoProduto = window.location.href.split('?')[1];
@@ -329,6 +330,7 @@ const verifications = () => {
             });
             const madiaStars = quantyStarTotal / filterAvaliaId.length;
             createStars(Math.ceil(madiaStars));
+            numberAvaliacao.innerText = filterAvaliaId.length;
         } else {
             createStars();
         }
