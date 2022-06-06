@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/css/productStyle.css">
     <link rel="stylesheet" href="/css/cardProducts.css">
     <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/footer.css">
 </head>
 
 <body>
@@ -30,20 +31,20 @@
             <div>
                 <h2>Avalie o Produto</h2>
                 <hr>
-                <div class="inputTrocSenha">
+                <div class="inputAval">
                     <span style="margin-right: 14px;">Nome</span>
-                    <input class="trocSenhaIn" type="password">
+                    <input class="inputsAvaliacaoo" type="text">
                 </div>
-                <div class="inputTrocSenha">
+                <div class="inputAval">
                     <span>Titulo da avaliação</span>
-                    <input class="trocSenhaIn" type="password">
+                    <input class="inputsAvaliacaoo" type="text">
                 </div>
-                <div class="inputTrocSenha">
+                <div class="inputAval">
                     <span>Avaliação</span>
-                    <textarea name="dd" id="dd"></textarea>
+                    <textarea class="inputsAvaliacaoo" name="" id=""></textarea>
                 </div>
                 <div class="seleStartsAva"></div>
-                <button id="btn-trocar-senhaa">Confirmar</button>
+                <button id="btn-avaliarr">Confirmar</button>
             </div>
         </div>
     </section>
@@ -190,14 +191,16 @@
                 <button id="btn-avaliar">Avaliar</button>
             </div>
             <hr>
-            <div>
-                <p>Sem Avaliações</p>
-            </div>
+            <div class="conjuntoAvaliacoes"></div>
         </section>
     </main>
 
 
-
+    <footer>
+        <span>akitem.devs@gmail.com</span>
+        <span>© 2022 Akitem. Todos os direitos reservados</span>
+          <a href="https://github.com/grupoAkitem/Akitem" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" /></a>
+      </footer>
     <div class="scripts">
         <script type="module" src="/scripts/productScript.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
